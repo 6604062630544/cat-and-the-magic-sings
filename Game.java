@@ -30,7 +30,6 @@ public class Game extends JPanel implements Runnable, KeyListener {
     public Random random = new Random();
     public int stage = 0;
     private boolean isGameOver = false;
-    private int timecounter = 20;
 
     public Game(Display display) {
         this.display = display;
@@ -47,7 +46,6 @@ public class Game extends JPanel implements Runnable, KeyListener {
 
         SwingUtilities.invokeLater(() -> this.requestFocusInWindow());
 
-        timecoundown();
     }
 
     public void generateQuestionSet() {
@@ -93,13 +91,11 @@ public class Game extends JPanel implements Runnable, KeyListener {
                 g.setFont(Element.getFont(20));
                 g.drawString("What color is this?", getWidth()/2 - 40, 60);        
                 g.drawString("Score: " + score, 850, 50);
-                g.drawString("Time : " + timecounter,getWidth() / 2, 100); 
             }else{
                 g.setColor(Color.WHITE);
                 g.setFont(Element.getFont(20));
                 g.drawString("What color is this?", getWidth()/2 - 40, 60);        
                 g.drawString("Score: " + score, 850, 50);
-                g.drawString("Time : " + timecounter,getWidth() / 2, 100); 
             }            
     
             g.setColor(Color.RED);
@@ -159,27 +155,6 @@ public class Game extends JPanel implements Runnable, KeyListener {
                 e.printStackTrace();
             }
         }
-    }
-
-    public void timecoundown(){
-        Timer timecoundown = new Timer(1000, (ActionListener) new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (timecounter > 0) {
-                    timecounter--;
-                } else {
-                    ((Timer) e.getSource()).stop();
-                    isGameOver = true;
-                    display.getContentPane().removeAll();
-                    display.getContentPane().add(new Gameover(display, score));
-                    display.revalidate();
-                    display.repaint();
-                }
-                repaint();
-            }
-        });
-        timecoundown.setRepeats(true);
-        timecoundown.start();
     }
 
     public void checkHealth() {
