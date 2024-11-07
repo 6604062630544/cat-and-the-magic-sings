@@ -14,7 +14,7 @@ public class Display extends JFrame{
         this.setTitle("Cat and the Magic Signs");
         this.setSize(size);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setLocation(300, 200);
+        this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
 

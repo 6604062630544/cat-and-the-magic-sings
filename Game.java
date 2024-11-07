@@ -144,10 +144,6 @@ public class Game extends JPanel implements Runnable, KeyListener {
                 event.checkstage();
                 checkHealth();
                 checkWin();
-
-                if (cat.x > getWidth()) {
-                    cat.x = 0;
-                }
                 repaint();
             };
 
@@ -167,7 +163,7 @@ public class Game extends JPanel implements Runnable, KeyListener {
             display.revalidate();
             display.repaint();            
             cat.health = 100;
-            this.score = 0;
+            score = 0;
         }
     }
 

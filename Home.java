@@ -32,7 +32,8 @@ public class Home extends JPanel {
         this.add(start);
         this.add(exit);
     }
-
+    
+    @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(bg.getImage(),0,0,1000,570,this);
