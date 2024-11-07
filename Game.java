@@ -11,7 +11,7 @@ public class Game extends JPanel implements Runnable, KeyListener {
     Signs option1 = new Signs(850, 340, 120, 120);
     Signs option2 = new Signs(850, 460, 120, 120);
     Event event = new Event(this,cat);
-    static Display display;
+    Display display;
 
     Color LightBrown = new Color(153, 102, 0);
     Color Purple = new Color(102,0,153);   
@@ -29,7 +29,7 @@ public class Game extends JPanel implements Runnable, KeyListener {
     public int score = 0;
     public Random random = new Random();
     public int stage = 0;
-    private boolean isGameOver = false;
+    private boolean isGameOver = false;  
 
     public Game(Display display) {
         this.display = display;
@@ -45,7 +45,6 @@ public class Game extends JPanel implements Runnable, KeyListener {
         this.setLayout(null);
 
         SwingUtilities.invokeLater(() -> this.requestFocusInWindow());
-
     }
 
     public void generateQuestionSet() {
@@ -164,7 +163,7 @@ public class Game extends JPanel implements Runnable, KeyListener {
             display.getContentPane().add(new Gameover(display, score));
             display.revalidate();
             display.repaint();            
-            cat.health = 100;
+            cat.health = 3;
             score = 0;
         }
     }
